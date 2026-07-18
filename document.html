@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hospital Triage System</title>
+
+<style>
+*{ margin:0; padding:0; box-sizing:border-box; font-family:'Segoe UI',Arial,sans-serif; }
+
+body{
+    /* 1. BACKGROUND SETTINGS */
+    background: linear-gradient(135deg, #e0f7fa, #bbdefb); /* gradient bg */
+    background-image: url('hospital-bg.jpg'); /* or use image */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    min-height: 100vh;
+    color:#333;
+}
+
+/* 2. HEADER WITH LOGO */
+header{
+    background: rgba(13, 110, 253, 0.95);
+    color:white;
+    padding:15px 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    position:sticky;
+    top:0;
+    z-index:1000;
+}
+.logo-area{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+.logo-area img{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:2px solid white;
+}
+.logo-area h1{
+    font-size:22px;
+}
+
+.container{
+    width:80%;
+    max-width:900px;
+    margin:30px auto;
+    background: rgba(255,255,255,0.95); /* glass effect */
+    backdrop-filter: blur(10px);
+    padding:25px;
+    border-radius:15px;
+    box-shadow:0 8px 25px rgba(0,0,0,.15);
+}
+
+.btn{
+    background:#0d6efd;
+    color:white;
+    padding:12px 25px;
+    border:none;
+    border-radius:8px;
+    font-weight:bold;
+    width:100%;
+    cursor:pointer;
+    font-size:16px;
+    transition:0.3s;
+}
+.btn:hover{
+    background:#ffc107;
+    color:#000;
+    transform: translateY(-2px);
+}
+
+.result-box{
+    background:#eef5ff;
+    padding:20px;
+    border-radius:10px;
+    border-left:5px solid #0d6efd;
+    margin-top:20px;
+}
+pre{
+    background:#fff;
+    padding:15px;
+    border-radius:8px;
+    overflow-x:auto;
+}
+
+footer{
+    text-align:center;
+    background: rgba(13, 110, 253, 0.95);
+    color:white;
+    padding:15px;
+    margin-top:30px;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER WITH LOGO -->
+<header>
+    <div class="logo-area">
+        <img src="hospital-logo.png" alt="Hospital Logo"> <!-- put your logo.png here -->
+        <h1>🏥 Hospital Triage System</h1>
+    </div>
+    <p>Smart Patient Routing</p>
+</header>
+
+<div class="container">
+    <button class="btn">Submit</button>
+
+    <div class="result-box">
+        <h2 style="color:#0d6efd">Routing Result</h2>
+        <p><b>Suggested Department:</b> Cardiology</p>
+        <p><b>Booking Link:</b> <a href="https://hospital.com/book/Cardiology">https://hospital.com/book/Cardiology</a></p>
+        <h3>Data Logged to MySQL (Simulation)</h3>
+        <pre>{
+  "name": "m.navya",
+  "age": "19",
+  "gender": "Female",
+  "phone": "7562983626",
+  "symptoms": ["Chest Pain"],
+  "severity": "Moderate",
+  "description": "sometimes it been heavily",
+  "department": "Cardiology",
+  "bookingLink": "https://hospital.com/book/Cardiology"
+}</pre>
+    </div>
+</div>
+
+<footer>
+    <p>© 2026 Hospital Triage System | Designed by Suneel Kumar</p>
+</footer>
+
+</body>
+</html>
