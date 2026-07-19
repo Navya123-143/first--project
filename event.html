@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Event Listeners</title>
+    <style>
+        #box{
+            width:200px;
+            height:100px;
+            background:lightblue;
+            text-align:center;
+            line-height:100px;
+            margin-top:20px;
+            border:2px solid black;
+        }
+    </style>
+</head>
+<body>
+
+<h2>JavaScript Event Listeners</h2>
+
+<!-- Click -->
+<button id="clickBtn">Click Me</button>
+
+<!-- Double Click -->
+<button id="dblBtn">Double Click Me</button>
+
+<!-- Mouse Events -->
+<div id="box">Mouse Box</div>
+
+<!-- Keyboard Events -->
+<br><br>
+<input type="text" id="textBox" placeholder="Type here">
+
+<!-- Form Submit -->
+<br><br>
+<form id="myForm">
+    <input type="text" placeholder="Enter Name" required>
+    <button type="submit">Submit</button>
+</form>
+
+<p id="output"></p>
+
+<script>
+
+let output = document.getElementById("output");
+
+// Click Event
+document.getElementById("clickBtn").addEventListener("click", function(){
+    output.innerHTML = "Click Event";
+});
+
+// Double Click Event
+document.getElementById("dblBtn").addEventListener("dblclick", function(){
+    output.innerHTML = "Double Click Event";
+});
+
+// Mouse Over Event
+document.getElementById("box").addEventListener("mouseover", function(){
+    output.innerHTML = "Mouse Over Event";
+});
+
+// Mouse Out Event
+document.getElementById("box").addEventListener("mouseout", function(){
+    output.innerHTML = "Mouse Out Event";
+});
+
+// Key Down Event
+document.getElementById("textBox").addEventListener("keydown", function(){
+    output.innerHTML = "Key Down Event";
+});
+
+// Key Up Event
+document.getElementById("textBox").addEventListener("keyup", function(){
+    output.innerHTML = "Key Up Event";
+});
+
+// Submit Event
+document.getElementById("myForm").addEventListener("submit", function(event){
+    event.preventDefault();
+    output.innerHTML = "Form Submitted";
+});
+
+</script>
+
+</body>
+</html>
