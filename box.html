@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JavaScript Functions</title>
+</head>
+
+<body align="center">
+
+<h2>JavaScript Function Types</h2>
+
+<input type="number" id="a" placeholder="First Number"><br><br>
+<input type="number" id="b" placeholder="Second Number"><br><br>
+
+<button onclick="sum()">Function Declaration</button>
+<button onclick="mul()">Function Expression</button>
+<button onclick="max()">Arrow Function</button>
+
+<h3 id="result"></h3>
+
+<script>
+
+// Function Declaration
+function sum() {
+    let x = +a.value, y = +b.value;
+    result.innerHTML = "Sum = " + (x + y);
+}
+
+// Function Expression
+const mul = function () {
+    let x = +a.value, y = +b.value;
+    result.innerHTML = "Multiplication = " + (x * y);
+};
+
+// Arrow Function
+const max = () => {
+    let x = +a.value, y = +b.value;
+    result.innerHTML = "Maximum = " + Math.max(x, y);
+};
+
+</script>
+
+</body>
+</html>
