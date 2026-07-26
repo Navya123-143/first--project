@@ -1,0 +1,51 @@
+from flask import Flask, request, jsonify
+from flask_cors import CORS
+import json, os, datetime
+
+app = Flask(__name__)
+CORS(app)
+
+FILE = 'appointments.json'
+
+if not os.path.exists(FILE):
+    with open(FILE, 'w') as f: json.dump([], f)
+
+def determine_department(symptom):
+    symptom = symptom.lower()
+    if 'chest' in symptom or 'heart' in symptom: return 'Cardiology'
+    if 'fever' in symptom or 'cold' in symptom: return 'General Medicine'
+    if 'head' in symptom: return 'Neurology'
+    return 'General Medicine'
+
+def determine_priority(symptom):
+    symptom = symptom.lower()
+    if 'chest pain' in symptom or 'breath' in symptom: return 'Emergency'
+    return 'Normal'
+
+def save_appointment(data):
+    with open(FILE, 'r') as f: appointments = json.load(f)
+    token = f"A{len(appointments)+1:03d}"
+    dept = determine_department(data['symptom'])
+    priority = determine_priority(data['symptom'])
+    new_app = {
+        "token": token, "name": data['name'], "age": data['age'], "gender": data['gender'],
+        "phone": data['phone'], "symptom": data['symptom'], "date": data['date'], 
+        "time": data['time'], "department": dept, "priority": priority
+    }
+    appointments.append(new_app)
+    with open(FILE, 'w') as f: json.dump(appointments, f, indent=2)
+    return token, dept, priority
+
+@app.route('/api/book', methods=['POST'])
+def book_appointment():
+    data = request.json
+    token, dept, priority = save_appointment(data)
+    return jsonify({'status': 'success', 'department': dept, 'token': token, 'priority': priority})
+
+@app.route('/api/appointments', methods=['GET'])
+def get_appointments():
+    with open(FILE, 'r') as f: appointments = json.load(f)
+    return jsonify(appointments)
+
+if __name__ == '__main__':
+    app.run(debug=True)
