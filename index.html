@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hospital Symptom-to-Department Triage System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+
+    <h1>🏥 Hospital Symptom-to-Department Triage System</h1>
+    <h3>Welcome, <span id="user"></span></h3>
+
+    <form id="triageForm">
+
+        <label>Patient Name</label>
+        <input type="text" id="name" placeholder="Enter your name" required>
+
+        <label>Age</label>
+        <input type="number" id="age" placeholder="Enter your age" required>
+
+        <label>Gender</label>
+        <select id="gender" required>
+            <option value="">Select Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+        </select>
+
+        <label>Phone Number</label>
+        <input type="tel" id="phone" placeholder="Enter phone number" required>
+
+        <label>Select Symptom</label>
+        <select id="symptom" required>
+            <option value="">Choose Symptom</option>
+
+            <option>Fever</option>
+            <option>Cold</option>
+            <option>Cough</option>
+            <option>Headache</option>
+            <option>Chest Pain</option>
+            <option>Heart Pain</option>
+            <option>Skin Allergy</option>
+            <option>Skin Rash</option>
+            <option>Eye Pain</option>
+            <option>Eye Redness</option>
+            <option>Ear Pain</option>
+            <option>Tooth Pain</option>
+            <option>Stomach Pain</option>
+            <option>Vomiting</option>
+            <option>Pregnancy Checkup</option>
+            <option>Bone Fracture</option>
+            <option>Joint Pain</option>
+            <option>Kidney Pain</option>
+            <option>Breathing Problem</option>
+            <option>General Checkup</option>
+
+        </select>
+
+        <button type="button" onclick="checkDepartment()">
+            Find Department
+        </button>
+
+    </form>
+
+    <div id="result"></div>
+
+    <br>
+
+    <a href="booking.html">
+        <button>Book Appointment</button>
+    </a>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
